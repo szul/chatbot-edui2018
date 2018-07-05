@@ -1,0 +1,26 @@
+{
+  "name": "conf-edui2018-bot",
+  "version": "1.0.0",
+  "description": "edUi Conference chatbot for the 2018 event",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szul/conf-edui2018-bot.git"
+  },
+  "keywords": [
+    "chatbot",
+    "bots",
+    "bot",
+    "framework",
+    "edui"
+  ],
+  "author": "Michael Szul <michael@szul.us>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/szul/conf-edui2018-bot/issues"
+  },
+  "homepage": "https://github.com/szul/conf-edui2018-bot#readme"
+}
