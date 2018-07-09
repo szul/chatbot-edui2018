@@ -1,0 +1,14 @@
+user=Michael
+bot=edUi Conference
+
+user: What time is the talk bots?
+bot: Michael Szul is speaking on bots at 3:00-4:00pm on Monday.
+[Suggestions=Add to List|Learn More]
+
+user: What time is the talk on mobile development?
+bot: We have a few.
+bot: Richard L. Taylor Jr. is speaking on Xamarin Development at 1:00-2:00pm on Monday.
+[Suggestions=Add to List|Learn More]
+
+bot: Also, Ashish Pathak is speaking on Progressive Web Apps at 1:00-2:00pm on Tuesday.
+[Suggestions=Add to List|Learn More]

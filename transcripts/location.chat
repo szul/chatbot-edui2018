@@ -1,25 +1,25 @@
 user=Michael
 bot=edUi Conference
 
-user: Who is speaking about bots?
+user: Where is the talk on bots?
 bot: [Herocard   
-    title=Michael Szul
-    subtitle=UVA, School of Medicine
+    title=Rehearsal A, Live Arts
+    subtitle=Michael Szul, Bot Framework
     text=Join Michael Szul in Rehearsal A for his discussion on building bots with the Microsoft Bot Framework.
     images=https://www.eduiconf.org/wp-content/uploads/sites/7/2018/03/headshot-150x150.jpg
-    buttons=Add to List|Learn More]
+    buttons=Add to List|Map It|Learn More]
 
-user: Who is speaking on mobile development?
+user: Where is the talk on mobile development?
 [AttachmentLayout=carousel]
-bot: [Herocard   
-        title=Richard L. Taylor Jr.
-        subtitle=SentryOne
+bot: [Thumbnailcard
+        title=Rehearsal A, Live Arts
+        subtitle=Richard L. Taylor Jr., Xamarin Development
         text=The objective of this workshop is to teach you how to use Xamarin and Xamarin Forms to create cross platform solutions.
         images=https://2018.syntaxcon.com/wp-content/uploads/sites/5/2017/05/richard-taylor-1.jpg
-        buttons=Add to List|Learn More]
-    [Herocard   
-        title=Ashish Pathak
-        subtitle=UVA, School of Medicine
+        buttons=Add to List|Map It|Learn More]
+    [Thumbnailcard
+        title=Rehearsal B, Live Arts
+        subtitle=Ashish Pathak, Progressive Web Apps
         text=Learn about how the UVA, School of Medicine is using PWAs to enhance student experiences.
         images=http://edui2017.virginiahumanities.org/wp-content/uploads/sites/42/2017/04/1dc4f10-150x150.jpg
-        buttons=Add to List|Learn More]
+        buttons=Add to List|Map It|Learn More]

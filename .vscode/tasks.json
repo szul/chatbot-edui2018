@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "chatdown",
+            "type": "shell",
+            "command": "./cd.ps1",
+            "problemMatcher": []
+        }
+    ]
+}
