@@ -62,3 +62,7 @@ typings/
 
 # Chatdown transcript files
 .transcript
+
+# LUDown output
+luis/*.json
+.qnamakerrc
