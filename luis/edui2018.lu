@@ -1,0 +1,43 @@
+# Speaker
+- who is speaking about {subject=bots}
+- who is giving the {subject=keynote}
+- who is speaking in the {location=rehearsal room}
+
+# Location
+- where is {person=michael's} workshop
+- where is {person=michael} talking
+- what location is the {subject=keynote}
+- where can i find the {subject=bot} talk
+- where is the {subject=xamarin} workshop
+- where is {person=michael} speaking
+- where is the {subject=keynote}
+- where is the {subject=bot} talk
+- where is {person=michael} speaking
+
+# Time 
+- what time is {person=michael's} presentation
+- when is the presentation by {person=michael}
+- when is {person=michael's} presentation
+- when is the {subject=xamarin} workshop
+- when is the {subject=bot} presentation
+- what time is the {subject=bot} talk
+- what time is the {subject=xamarin} workshop
+- what time is the {subject=bot} presentation
+- what time is the workshop on {subject=xamarin}
+- what time is the presentation on {subject=xamarin}
+
+# Topic
+- is there a {subject=bot} presentation
+- is there a {subject=bot} talk
+- are there any presentations about {subject=bots}
+- are there any workshops on {subject=xamarin}
+- are there any talks on {subject=bots}
+- what is {person=michael} talking about
+- what is {person=michael} speaking about
+- are there any {subject=bot} presentations
+- are there any {subject=bot} workshops
+- are there any {subject=bot} talks
+
+$subject:Simple
+$location:Simple
+$person:Simple
