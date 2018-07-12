@@ -1,0 +1,18 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+                "module": "commonjs", 
+                "target": "es6",
+                "sourceMap": true,
+                "declaration": false,
+                "removeComments": true,
+                "outDir": "./dist",
+                "allowJs": true
+            },
+    "files": [
+        "./lib/cards.ts",
+        "./lib/dialogs.ts",
+        "./lib/parser.ts",
+        "./lib/app.ts"
+    ]
+}

@@ -2,7 +2,7 @@
   "name": "conf-edui2018-bot",
   "version": "1.0.0",
   "description": "edUi Conference chatbot for the 2018 event",
-  "main": "dist/app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
