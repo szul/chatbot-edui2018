@@ -67,3 +67,4 @@ typings/
 luis/*.json
 .qnamakerrc
 .luisrc
+dist/
