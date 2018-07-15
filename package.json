@@ -24,9 +24,12 @@
   },
   "homepage": "https://github.com/szul/conf-edui2018-bot#readme",
   "dependencies": {
+    "@types/dotenv": "^4.0.3",
     "@types/restify": "^7.2.2",
     "botbuilder": "^4.0.0-preview1.2",
     "botbuilder-ai": "^4.0.0-preview1.2",
+    "botbuilder-config": "^0.2.0",
+    "dotenv": "^6.0.0",
     "restify": "^7.2.1",
     "typescript": "^2.9.2"
   }

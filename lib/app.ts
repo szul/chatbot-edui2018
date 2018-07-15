@@ -2,6 +2,12 @@ import { BotFrameworkAdapter, MemoryStorage, ConversationState } from "botbuilde
 import { QnAMaker } from "botbuilder-ai";
 import * as restify from "restify";
 import { ConfState } from "./types";
+import { BotConfig } from "botbuilder-config";
+import { config } from "dotenv";
+
+config();
+
+const botConfig = new BotConfig("./edui2018.bot", process.env.BOT_FILE_SECRET);
 
 let server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -17,21 +23,20 @@ const conversationState = new ConversationState<ConfState>(new MemoryStorage());
 adapter.use(conversationState);
 
 const qnaMaker = new QnAMaker({
-        knowledgeBaseId: "",
-        endpointKey: "",
-        host: ""
-    },
-    {
-        answerBeforeNext: true
+    knowledgeBaseId: botConfig.QnAMaker().kbId,
+    endpointKey: botConfig.QnAMaker().endpointKey,
+    host: botConfig.QnAMaker().hostname
+},
+{
+    answerBeforeNext: true
 });
 adapter.use(qnaMaker);
 
-server.post('/api/messages', (req, res) => {
+server.post("/api/messages", (req, res) => {
     adapter.processActivity(req, res, async (context) => {
-        if (context.activity.type === 'message') {
-            const state = conversationState.get(context);
-            await context.sendActivity(`You said "${context.activity.text}"`);
-        } else {
+        if (context.activity.type === "message" && !context.responded) {
+            await context.sendActivity("No QnA Maker answers were found.");
+        } else if (context.activity.type !== "message") {
             await context.sendActivity(`[${context.activity.type} event detected]`);
         }
     });
