@@ -18,7 +18,8 @@
             "version": "0.1",
             "appId": "21024841-0b73-418a-bb8a-1d199fbff7fa",
             "authoringKey": "8337c8d993ed84bd80b08e717505f25f8fc437d8533b3b5f20e09b729ce842679ed582f37a37b41d6b5a01a6d966493a",
-            "subscriptionKey": ""
+            "subscriptionKey": "",
+            "endpointBasePath": "https://westus.api.cognitive.microsoft.com/luis/api/v2.0"
         },
         {
             "type": "qna",

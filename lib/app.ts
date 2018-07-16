@@ -1,5 +1,5 @@
 import { BotFrameworkAdapter, MemoryStorage, ConversationState } from "botbuilder";
-import { QnAMaker } from "botbuilder-ai";
+import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
 import * as restify from "restify";
 import { ConfState } from "./types";
 import { BotConfig } from "botbuilder-config";
@@ -31,6 +31,12 @@ const qnaMaker = new QnAMaker({
     answerBeforeNext: true
 });
 adapter.use(qnaMaker);
+
+const luis = new LuisRecognizer({
+    appId: botConfig.LUIS().appId,
+    subscriptionKey: botConfig.LUIS().subscriptionKey,
+    serviceEndpoint: botConfig.LUIS().endpointBasePath
+});
 
 server.post("/api/messages", (req, res) => {
     adapter.processActivity(req, res, async (context) => {

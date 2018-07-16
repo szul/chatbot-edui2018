@@ -4,6 +4,7 @@
   "description": "edUi Conference chatbot for the 2018 event",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,7 +29,7 @@
     "@types/restify": "^7.2.2",
     "botbuilder": "^4.0.0-preview1.2",
     "botbuilder-ai": "^4.0.0-preview1.2",
-    "botbuilder-config": "^0.2.1",
+    "botbuilder-config": "^0.2.2",
     "dotenv": "^6.0.0",
     "restify": "^7.2.1",
     "typescript": "^2.9.2"
