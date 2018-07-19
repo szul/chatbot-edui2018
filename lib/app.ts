@@ -34,15 +34,22 @@ adapter.use(qnaMaker);
 
 const luis = new LuisRecognizer({
     appId: botConfig.LUIS().appId,
-    subscriptionKey: botConfig.LUIS().subscriptionKey,
+    subscriptionKey: botConfig.decrypt(botConfig.LUIS().subscriptionKey, botConfig.secret),
     serviceEndpoint: botConfig.LUIS().endpointBasePath
 });
 
 server.post("/api/messages", (req, res) => {
     adapter.processActivity(req, res, async (context) => {
-        if (context.activity.type === "message" && !context.responded) {
+        if (context.activity.type === "message") {
+            await luis.recognize(context).then(res => {
+                let top = LuisRecognizer.topIntent(res);
+                context.sendActivity(`The top intent found was ${top}`);
+            });
+        }
+        else if (context.activity.type === "message" && !context.responded) {
             await context.sendActivity("No QnA Maker answers were found.");
-        } else if (context.activity.type !== "message") {
+        }
+        else if (context.activity.type !== "message") {
             await context.sendActivity(`[${context.activity.type} event detected]`);
         }
     });
