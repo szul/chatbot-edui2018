@@ -4,7 +4,7 @@ import * as restify from "restify";
 import { ConfState, SpeakerSession } from "./types";
 import { BotConfig } from "botbuilder-config";
 import { config } from "dotenv";
-import { getSessionBySubject, getSessionByLocation, getSessionByPerson } from "./parser";
+import { getData } from "./parser";
 
 config();
 
@@ -44,24 +44,19 @@ server.post("/api/messages", (req, res) => {
         if (context.activity.type === "message") {
             await luis.recognize(context).then(res => {
                 let top = LuisRecognizer.topIntent(res);
-                let subject = res.entities["subject"];
-                let location = res.entities["location"];
-                let person = res.entities["person"];
-                let data: SpeakerSession;
-                if(subject != null)  {
-                    data = getSessionBySubject(subject);
-                }
-                if(location != null) {
-                    data = getSessionByLocation(location, data);
-                }
-                if(person != null) {
-                    data = getSessionByPerson(person, data);
-                }
+                let data: SpeakerSession[];
                 switch(top) {
                     case "Speaker":
                     case "Location":
                     case "Time":
                     case "Topic":
+                        data = getData(res.entities);
+                        console.log(res);
+                        console.log(data);
+                        //if(data.length > 1) {
+                            //return dialogs.createChoiceOptions(data);
+                        //}
+                        //return (data.length === 1) ? dialogs.createHeroCard(sess, data[0], intent) : null;
                     default:
                         context.sendActivity(`No way to handle ${top}`);
                         break;
