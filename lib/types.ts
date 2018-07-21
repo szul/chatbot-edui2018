@@ -1,6 +1,11 @@
 export interface ConfState {
 }
 
+export interface SpeakerImage {
+  type: string
+, link: string
+}
+
 export interface SpeakerSession {
     date: string
   , startTime: string
@@ -11,5 +16,5 @@ export interface SpeakerSession {
   , keywords: string
   , link: string
   , type: string
-  , images?: string[]
+  , images?: SpeakerImage[]
 }
