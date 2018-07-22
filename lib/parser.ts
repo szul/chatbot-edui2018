@@ -2,22 +2,22 @@ import * as fs from "fs";
 import { load as CheerioLoad } from "cheerio";
 import { SpeakerSession, SpeakerImage } from "./types";
 
-const file: string = fs.readFileSync("./edui.xml", "utf-8");
+const file: string = fs.readFileSync("./data/edui2017.xml", "utf-8");
 const xml: CheerioStatic = CheerioLoad(file);
 
-export function getData(e: any): SpeakerSession[] {
-    if(e != null) {
-        let subject = e.entities["subject"];
-        let location = e.entities["location"];
-        let person = e.entities["person"];
+export function getData(entities: any): SpeakerSession[] {
+    if(entities != null) {
+        let subject = entities["subject"];
+        let location = entities["location"];
+        let person = entities["person"];
         if(person != null) {
-            return getSessionByPerson(person);
+            return getSessionByPerson((person instanceof Array) ? person[0] : person);
         }
         if(subject != null) {
-            return getSessionBySubject(subject);
+            return getSessionBySubject((subject instanceof Array) ? subject[0] : subject);
         }
         if(location != null) {
-            return getSessionByLocation(location);
+            return getSessionByLocation((location instanceof Array) ? location[0] : location);
         }
     }
     return [];

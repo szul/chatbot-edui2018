@@ -5,6 +5,7 @@ import { ConfState, SpeakerSession } from "./types";
 import { BotConfig } from "botbuilder-config";
 import { config } from "dotenv";
 import { getData } from "./parser";
+import { createCarousel, createHeroCard } from "./cards";
 
 config();
 
@@ -51,12 +52,14 @@ server.post("/api/messages", (req, res) => {
                     case "Time":
                     case "Topic":
                         data = getData(res.entities);
-                        console.log(res);
-                        console.log(data);
-                        //if(data.length > 1) {
-                            //return dialogs.createChoiceOptions(data);
-                        //}
-                        //return (data.length === 1) ? dialogs.createHeroCard(sess, data[0], intent) : null;
+                        if(data.length > 1) {
+                            createCarousel(data);
+                            break;
+                        }
+                        else if (data.length === 1) {
+                            createHeroCard(data[0]);
+                            break;
+                        }
                     default:
                         context.sendActivity(`No way to handle ${top}`);
                         break;
