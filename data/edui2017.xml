@@ -6,7 +6,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>http://eduiconf.org/sessions/breakfast-and-check-in/</page>
-            <images></images>
+            <photos></photos>
         </event>
         <event type="" start-time="9:00 am" end-time="10:00 am">
             <title>Opening Keynote</title>
@@ -14,7 +14,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>#</page>
-            <images></images>
+            <photos></photos>
         </event>
         <event type="Talk" start-time="10:15 am" end-time="11:00 am">
             <title>Going Beyond Google: Custom Site Search Made Easy</title>
@@ -22,10 +22,10 @@
             <speakers>Brian Rimel        Matt Clark</speakers>
             <keywords>CSS, HTML, JavaScript, coding, search</keywords>
             <page>http://eduiconf.org/sessions/going-beyond-google/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/BrianRimel-300x300.jpg</image>
-                <image type="speaker">http://eduiconf.org/files/2017/04/HqpmWk6W-300x300.jpeg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/BrianRimel-300x300.jpg</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/HqpmWk6W-300x300.jpeg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="11:15 am" end-time="12:00 pm">
             <title>Finding Eternal REST</title>
@@ -33,10 +33,10 @@
             <speakers>Curtiss Grymala        John Rhea</speakers>
             <keywords>CMS, JavaScript, coding</keywords>
             <page>http://eduiconf.org/sessions/finding-eternal-rest/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2014/03/curtiss-grymala-300x300.jpg</image>
-                <image type="speaker">http://eduiconf.org/files/2017/03/Rhea_Gravatar.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2014/03/curtiss-grymala-300x300.jpg</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/Rhea_Gravatar.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="10:15 am" end-time="11:00 am">
             <title>The Accessible User Experience</title>
@@ -44,9 +44,9 @@
             <speakers>Robin Smail</speakers>
             <keywords>Accessibility</keywords>
             <page>http://eduiconf.org/sessions/accessible-ux/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/robin2go_headshot-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/robin2go_headshot-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="11:15 am" end-time="12:00 pm">
             <title>Giving Words the Attention They Deserve</title>
@@ -54,9 +54,9 @@
             <speakers>Heidi Burkhardt</speakers>
             <keywords>content</keywords>
             <page>http://eduiconf.org/sessions/giving-words-the-attention-they-deserve/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/heidisb.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/heidisb.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="10:15 am" end-time="11:00 am">
             <title>Empathetic Design: Creating Safe Spaces</title>
@@ -64,9 +64,9 @@
             <speakers>Carrie Moran</speakers>
             <keywords>user experience</keywords>
             <page>http://eduiconf.org/sessions/empathetic-design/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/carrie-moran.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/carrie-moran.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="11:15 am" end-time="12:00 pm">
             <title>Break Your Own Rules: Creating a Digital Brand System that Encourages Creativity</title>
@@ -74,9 +74,9 @@
             <speakers>Jeremy Cherry</speakers>
             <keywords>branding, management, process</keywords>
             <page>http://eduiconf.org/sessions/break-your-own-rules/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/jeremy-bio1-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/jeremy-bio1-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="10:15 am" end-time="11:00 am">
             <title>Free as in Puppies: The Care & Feeding of “Pet Projects”</title>
@@ -84,9 +84,9 @@
             <speakers>Nikki Massaro Kauffman</speakers>
             <keywords>management, process</keywords>
             <page>http://eduiconf.org/sessions/pet-projects/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/profilepic2-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/profilepic2-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="11:15 am" end-time="12:00 pm">
             <title>User Experience Design in Virtual and Augmented Reality</title>
@@ -94,9 +94,9 @@
             <speakers>Dan Cotting</speakers>
             <keywords>VR, interaction design, prototyping, user experience, user interface</keywords>
             <page>http://eduiconf.org/sessions/ux-vr/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/14379619_10104250699246440_2893300350431921532_o-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/14379619_10104250699246440_2893300350431921532_o-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="" start-time="12:00 pm" end-time="1:30 pm">
             <title>Lunch</title>
@@ -104,7 +104,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>http://eduiconf.org/sessions/lunch/</page>
-            <images></images>
+            <photos></photos>
         </event>
         <event type="Mini-workshop" start-time="1:30 pm" end-time="3:00 pm">
             <title>Getting Crafty with Components: Breaking Down the How and Why of Atomic Design</title>
@@ -112,10 +112,10 @@
             <speakers>John Williams        Jenny Slaughter</speakers>
             <keywords>Visual Design, responsive design</keywords>
             <page>http://eduiconf.org/sessions/atomic-design/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/John_2171-300x300.png</image>
-                <image type="speaker">http://eduiconf.org/files/2017/03/Jenny_Slaughter-team-300x300.png</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/John_2171-300x300.png</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/Jenny_Slaughter-team-300x300.png</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="3:30 pm" end-time="4:00 pm">
             <title>Accessible Development For All!</title>
@@ -123,9 +123,9 @@
             <speakers>Joni Halabi</speakers>
             <keywords>Accessibility, HTML, coding</keywords>
             <page>http://eduiconf.org/sessions/accessible-development-for-all/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/02/joni_0922w-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/02/joni_0922w-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="1:30 pm" end-time="2:15 pm">
             <title>Representing Diversity on the Web: How to create inclusive virtual campus environments</title>
@@ -133,9 +133,9 @@
             <speakers>Conny Liegl</speakers>
             <keywords>content, process, strategy</keywords>
             <page>http://eduiconf.org/sessions/diversity-on-the-web/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/cliegl-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/cliegl-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="2:30 pm" end-time="3:15 pm">
             <title>Internet of Things: Assessing Physical Spaces</title>
@@ -143,10 +143,10 @@
             <speakers>Jonathan Bradley        Scott Fralin</speakers>
             <keywords>JavaScript, coding</keywords>
             <page>http://eduiconf.org/sessions/iot-assessing-physical-spaces/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/meprofessional-250x300.jpg</image>
-                <image type="speaker">http://eduiconf.org/files/2017/03/Az45EnRe-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/meprofessional-250x300.jpg</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/Az45EnRe-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Public Square" start-time="3:30 pm" end-time="4:00 pm">
             <title>You’re the Worst: Content and design strategies for dealing with terrible users</title>
@@ -154,9 +154,9 @@
             <speakers>Adrienne Lai</speakers>
             <keywords>Visual Design, content, user experience</keywords>
             <page>http://eduiconf.org/sessions/youre-the-worst/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2FLai-headshot-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2FLai-headshot-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="1:30 pm" end-time="2:15 pm">
             <title>Customizing LibGuides for n00bs</title>
@@ -164,10 +164,10 @@
             <speakers>Amanda VerMeulen        Jonathan Beeker</speakers>
             <keywords>CMS, CSS, HTML</keywords>
             <page>http://eduiconf.org/sessions/libguides-for-n00bs/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2Fvermeulen_headshot-300x300.jpg</image>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2Fjbeeker-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2Fvermeulen_headshot-300x300.jpg</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2Fjbeeker-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="2:30 pm" end-time="3:15 pm">
             <title>Journey to an Accessible, Streamlined Campus Theme</title>
@@ -175,9 +175,9 @@
             <speakers>Kevin Pittman</speakers>
             <keywords>Accessibility, CMS, process</keywords>
             <page>http://eduiconf.org/sessions/journey-to-an-accessible-streamlined-campus-theme/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2Fkevin-pittman-edui17-300x250.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2Fkevin-pittman-edui17-300x250.jpg</photo>
+            </photos>
         </event>
         <event type="Public Square" start-time="3:30 pm" end-time="4:00 pm">
             <title>Things We Can’t Live Without: Handy Tools for Free to Cheap</title>
@@ -185,10 +185,10 @@
             <speakers>Valerie Harness        Ivy Lustig</speakers>
             <keywords>social media, user experience, user interface</keywords>
             <page>http://eduiconf.org/sessions/things-we-cant-live-without/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2013/04/Valerie-Harness-Headshot.jpg</image>
-                <image type="speaker">http://eduiconf.org/files/2017/04/lM2ZoFkK-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2013/04/Valerie-Harness-Headshot.jpg</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/lM2ZoFkK-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="1:30 pm" end-time="2:15 pm">
             <title>Building Bots for the Conversation UI</title>
@@ -196,9 +196,9 @@
             <speakers>Michael Szul</speakers>
             <keywords>JavaScript, coding, user interface</keywords>
             <page>http://eduiconf.org/sessions/building-bots-for-the-conversation-ui/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2F20170412_234751858_iOS-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2F20170412_234751858_iOS-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="2:30 pm" end-time="3:15 pm">
             <title>The Internal Agency: Bringing websites to the masses</title>
@@ -206,9 +206,9 @@
             <speakers>Lauren Moriarty</speakers>
             <keywords>CMS, management, process</keywords>
             <page>http://eduiconf.org/sessions/the-internal-agency/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/LMoriarty2.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/LMoriarty2.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="3:30 pm" end-time="4:00 pm">
             <title>Joy from the Collections: Embracing Flat Hierarchies</title>
@@ -216,9 +216,9 @@
             <speakers>Natalie Buda Smith</speakers>
             <keywords>information architecture, process, strategy</keywords>
             <page>http://eduiconf.org/sessions/joy-from-the-collections-embracing-flat-hierarchies/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/IMG_0259-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/IMG_0259-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Keynote" start-time="4:15 pm" end-time="5:15 pm">
             <title>Dark Patterns and Bad Business Models: “I Can’t Let You Do That, Dave.”</title>
@@ -226,9 +226,9 @@
             <speakers>Cory Doctorow</speakers>
             <keywords></keywords>
             <page>http://eduiconf.org/sessions/dark-patterns-and-bad-business-models-i-cant-let-you-do-that-dave/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/cory-doctorow-3-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/cory-doctorow-3-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="" start-time="6:30 pm" end-time="9:30 pm">
             <title>Opening Night Reception</title>
@@ -236,7 +236,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>#</page>
-            <images></images>
+            <photos></photos>
         </event>
     </day>
     <day date="2017-09-26">
@@ -246,7 +246,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>http://eduiconf.org/sessions/breakfast-tues/</page>
-            <images></images>
+            <photos></photos>
         </event>
         <event type="Keynote" start-time="9:00 am" end-time="10:00 am">
             <title>Design For Real Life</title>
@@ -254,9 +254,9 @@
             <speakers>Sara Wachter-Boettcher</speakers>
             <keywords>content</keywords>
             <page>http://eduiconf.org/sessions/design-for-real-life/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/01/swb-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/01/swb-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="10:15 am" end-time="11:00 am">
             <title>User Interface in Google’s Virtual Reality Suite</title>
@@ -264,10 +264,10 @@
             <speakers>Anson Parker        David Moody</speakers>
             <keywords>VR, interaction design, user interface</keywords>
             <page>http://eduiconf.org/sessions/ui-google-vr/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/Screenshot-2017-03-20-13.06.37-300x300.png</image>
-                <image type="speaker">http://eduiconf.org/files/2017/03/Screenshot-2017-03-20-13.13.13-300x300.png</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/Screenshot-2017-03-20-13.06.37-300x300.png</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/Screenshot-2017-03-20-13.13.13-300x300.png</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="11:15 am" end-time="12:00 pm">
             <title>Google DevFest TBA</title>
@@ -275,7 +275,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>#</page>
-            <images></images>
+            <photos></photos>
         </event>
         <event type="Mini-workshop" start-time="10:30 am" end-time="12:00 pm">
             <title>Content Measurement and Analytics</title>
@@ -283,9 +283,9 @@
             <speakers>Rick Allen</speakers>
             <keywords>analytics, content</keywords>
             <page>http://eduiconf.org/sessions/content-measurement-analytics/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/5cxaKHMW-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/5cxaKHMW-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="10:15 am" end-time="11:00 am">
             <title>User Experience is a Metric: Defining what UX designers actually do so we can push the discipline forward</title>
@@ -293,9 +293,9 @@
             <speakers>Michael Schofield</speakers>
             <keywords>management, user experience</keywords>
             <page>http://eduiconf.org/sessions/ux-metric/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/Screenshot-2017-03-02-09.30.53-300x300.png</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/Screenshot-2017-03-02-09.30.53-300x300.png</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="11:15 am" end-time="12:00 pm">
             <title>Tear Down This Wall! Removing boundaries to create an accessible website</title>
@@ -303,10 +303,10 @@
             <speakers>Sarah Arnold        Tabitha Frahm</speakers>
             <keywords>Accessibility, user testing</keywords>
             <page>http://eduiconf.org/sessions/tear-down-this-wall/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/Sarah_Arnold_500x375-300x300.png</image>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2FIMG_7231-Edit-2-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/Sarah_Arnold_500x375-300x300.png</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2FIMG_7231-Edit-2-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="10:15 am" end-time="11:00 am">
             <title>Building Progressive Web Apps</title>
@@ -314,10 +314,10 @@
             <speakers>Michael Szul        Ashish Pathak</speakers>
             <keywords>HTML, JavaScript, coding, mobile, responsive design</keywords>
             <page>http://eduiconf.org/sessions/progressive-web-apps/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2F20170412_234751858_iOS-300x300.jpg</image>
-                <image type="speaker">http://eduiconf.org/files/2017/04/1dc4f10-150x150.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2F20170412_234751858_iOS-300x300.jpg</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/1dc4f10-150x150.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="11:15 am" end-time="12:00 pm">
             <title>Hacking User Research: Campus Edition</title>
@@ -325,9 +325,9 @@
             <speakers>Lynn Boyden</speakers>
             <keywords>user experience, user testing</keywords>
             <page>http://eduiconf.org/sessions/hacking-user-research/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/Lynn-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/Lynn-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="" start-time="12:00 pm" end-time="1:30 pm">
             <title>Lunch on Your Own</title>
@@ -335,7 +335,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>http://eduiconf.org/sessions/lunch-on-your-own/</page>
-            <images></images>
+            <photos></photos>
         </event>
         <event type="Mini-workshop" start-time="1:30 pm" end-time="3:00 pm">
             <title>Google DevFest TBA</title>
@@ -343,7 +343,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>http://eduiconf.org/sessions/google-devfest-tba-2/</page>
-            <images></images>
+            <photos></photos>
         </event>
         <event type="Talk" start-time="1:30 pm" end-time="2:15 pm">
             <title>What Responsive Design Can Teach Us About Accessibility</title>
@@ -351,9 +351,9 @@
             <speakers>John Williams</speakers>
             <keywords>Accessibility, responsive design</keywords>
             <page>http://eduiconf.org/sessions/rwd-accessibility/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/John_2171-300x300.png</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/John_2171-300x300.png</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="2:30 pm" end-time="3:00 pm">
             <title>Is This Better? Google Optimize Primer</title>
@@ -361,9 +361,9 @@
             <speakers>Steven D. Shelton</speakers>
             <keywords>analytics, user testing</keywords>
             <page>http://eduiconf.org/sessions/google-optimize-primer/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/ckg2891-240x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/ckg2891-240x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="1:30 pm" end-time="2:15 pm">
             <title>Case Study: Johns Hopkins University Redesign</title>
@@ -371,10 +371,10 @@
             <speakers>Lauren Custer        Eric Conrad</speakers>
             <keywords>process, strategy</keywords>
             <page>http://eduiconf.org/sessions/case-study-jhu-redesign/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/3d6c613.jpg</image>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2FIMG_3739-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/3d6c613.jpg</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2FIMG_3739-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Public Square" start-time="2:30 pm" end-time="3:00 pm">
             <title>Anything But Users: How We Talk About Humans</title>
@@ -382,9 +382,9 @@
             <speakers>Elissa Frankle</speakers>
             <keywords>user experience</keywords>
             <page>http://eduiconf.org/sessions/anything-but-users/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/IMG_0763-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/IMG_0763-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="1:30 pm" end-time="2:15 pm">
             <title>An Innovation Engine for Penn State</title>
@@ -392,9 +392,9 @@
             <speakers>Hayley Wildeson</speakers>
             <keywords>management, process</keywords>
             <page>http://eduiconf.org/sessions/innovation-engine-penn-state/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/Hayley-Wildeson.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/Hayley-Wildeson.jpg</photo>
+            </photos>
         </event>
         <event type="Expert Panel" start-time="2:30 pm" end-time="3:00 pm">
             <title>Creating a Space for Collaborative Instructional Design</title>
@@ -402,11 +402,11 @@
             <speakers>Kayla McNabb        Lisa Becksford        Neal Henshaw</speakers>
             <keywords>management, process</keywords>
             <page>http://eduiconf.org/sessions/collaborative-instructional-design/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/00000IMG_00000_BURST20170131130504_COVER-300x300.jpg</image>
-                <image type="speaker">http://eduiconf.org/files/2017/03/Lisa-Becksford-300x300.jpg</image>
-                <image type="speaker">http://eduiconf.org/files/2017/03/NealHenshaw1-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/00000IMG_00000_BURST20170131130504_COVER-300x300.jpg</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/Lisa-Becksford-300x300.jpg</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/NealHenshaw1-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="" start-time="3:00 pm" end-time="3:30 pm">
             <title>Exhibitor Meet & Greet</title>
@@ -414,7 +414,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>http://eduiconf.org/sessions/exhibitor-meet-greet/</page>
-            <images></images>
+            <photos></photos>
         </event>
         <event type="Talk" start-time="3:30 pm" end-time="4:15 pm">
             <title>Google Devfest: TBA</title>
@@ -422,7 +422,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>http://eduiconf.org/sessions/google-devfest-tba-4/</page>
-            <images></images>
+            <photos></photos>
         </event>
         <event type="Talk" start-time="4:30 pm" end-time="5:15 pm">
             <title>Google DevFest: TBA</title>
@@ -430,10 +430,10 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>http://eduiconf.org/sessions/google-devfest-tba-3/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2F20170412_234751858_iOS-300x300.jpg</image>
-                <image type="speaker">http://eduiconf.org/files/2017/04/1dc4f10-150x150.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2F20170412_234751858_iOS-300x300.jpg</photo>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/1dc4f10-150x150.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="3:30 pm" end-time="4:15 pm">
             <title>Humans not Zombies: Identity-Based Content Strategy for More Engaging Websites</title>
@@ -441,9 +441,9 @@
             <speakers>Melissa Eggleston</speakers>
             <keywords>content</keywords>
             <page>http://eduiconf.org/sessions/humans-not-zombies/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/melissa1medium-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/melissa1medium-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="4:30 pm" end-time="5:15 pm">
             <title>The User Experience of Data Visualization</title>
@@ -451,9 +451,9 @@
             <speakers>Wendy Repass</speakers>
             <keywords>data visualization, user experience</keywords>
             <page>http://eduiconf.org/sessions/data-visualization-ux/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2Frepass_300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2Frepass_300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="3:30 pm" end-time="4:15 pm">
             <title>Design Sprints: A high-value, low-cost approach to problem solving</title>
@@ -461,9 +461,9 @@
             <speakers>Mike Shelton</speakers>
             <keywords>management, process, strategy</keywords>
             <page>http://eduiconf.org/sessions/design-sprints/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/mike-bio-photo-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/mike-bio-photo-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Talk" start-time="4:30 pm" end-time="5:15 pm">
             <title>The Decentralized University: Improving Digital Experiences One Site at a Time</title>
@@ -471,9 +471,9 @@
             <speakers>Kim Vassiliadis</speakers>
             <keywords>management, process, strategy</keywords>
             <page>http://eduiconf.org/sessions/decentralized-university/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2FKim-HeadShot-1.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/04/index.php-gf-download-2017-2F04-2FKim-HeadShot-1.jpg</photo>
+            </photos>
         </event>
         <event type="Mini-workshop" start-time="3:30 pm" end-time="5:00 pm">
             <title>Introduction to IIIF</title>
@@ -481,9 +481,9 @@
             <speakers>Shaun Ellis</speakers>
             <keywords>JavaScript, coding, user interface</keywords>
             <page>http://eduiconf.org/sessions/introduction-to-iiif/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/03/shaun_ellis-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/03/shaun_ellis-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="" start-time="7:00 pm" end-time="10:00 pm">
             <title>After Party</title>
@@ -491,7 +491,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>#</page>
-            <images></images>
+            <photos></photos>
         </event>
     </day>
     <day date="2017-09-27">
@@ -501,7 +501,7 @@
             <speakers></speakers>
             <keywords></keywords>
             <page>http://eduiconf.org/sessions/breakfast-wed/</page>
-            <images></images>
+            <photos></photos>
         </event>
         <event type="Workshop" start-time="9:00 am" end-time="12:00 pm">
             <title>Building and Animating SVGs</title>
@@ -509,9 +509,9 @@
             <speakers>Sarah Drasner</speakers>
             <keywords>Visual Design, coding</keywords>
             <page>http://eduiconf.org/sessions/building-and-animating-svgs/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/02/sarah-drasner-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/02/sarah-drasner-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Workshop" start-time="9:00 am" end-time="12:00 pm">
             <title>Compassionate Content & UX</title>
@@ -519,9 +519,9 @@
             <speakers>Sara Wachter-Boettcher</speakers>
             <keywords>content</keywords>
             <page>http://eduiconf.org/sessions/compassionate-content-ux/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/01/swb-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/01/swb-300x300.jpg</photo>
+            </photos>
         </event>
         <event type="Workshop" start-time="9:00 am" end-time="12:00 pm">
             <title>Analytics Workshop</title>
@@ -529,9 +529,9 @@
             <speakers>Nick DeNardis</speakers>
             <keywords>analytics</keywords>
             <page>http://eduiconf.org/sessions/analytics-workshop/</page>
-            <images>
-                <image type="speaker">http://eduiconf.org/files/2017/02/nick-denardis-300x300.jpg</image>
-            </images>
+            <photos>
+                <photo type="speaker">http://eduiconf.org/files/2017/02/nick-denardis-300x300.jpg</photo>
+            </photos>
         </event>
     </day>
 </conference>

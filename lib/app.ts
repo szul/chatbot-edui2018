@@ -53,11 +53,11 @@ server.post("/api/messages", (req, res) => {
                     case "Topic":
                         data = getData(res.entities);
                         if(data.length > 1) {
-                            createCarousel(data);
+                            context.sendActivity(createCarousel(data));
                             break;
                         }
                         else if (data.length === 1) {
-                            createHeroCard(data[0]);
+                            context.sendActivity({ attachments: [createHeroCard(data[0])] });
                             break;
                         }
                     default:

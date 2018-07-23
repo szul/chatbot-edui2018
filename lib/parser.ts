@@ -60,9 +60,10 @@ function writeEvent(events: Array<CheerioElement>): SpeakerSession[] {
             , link: elem.find("page").text()
             , type: elem.attr("type")
         };
-        if(elem.find("image").length > 0) {
+        let img = elem.find("photo");
+        if(img != null) {
             let imgs: SpeakerImage[] = [];
-            elem.find("image").each((idx: number, el: CheerioElement) => {
+            img.each((idx: number, el: CheerioElement) => {
                 imgs.push({
                       type: xml(el).attr("type")
                     , link: xml(el).text()
