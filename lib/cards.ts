@@ -22,14 +22,17 @@ export function createHeroCard(data: SpeakerSession, topIntent: string): Attachm
         case "Speaker":
             title = data.speakers;
             subtitle = data.location;
+            break;
         case "Location":
             title = data.location;
             subtitle = `${data.speakers}, ${data.title}`;
+            break;
         case "Topic":
             title = data.title;
             subtitle = data.speakers;
+            break;
         default:
-            throw new Error(`No way to handle ${top}`);
+            throw new Error(`No way to handle ${topIntent}`);
     }
     return CardFactory.heroCard(
         title,
