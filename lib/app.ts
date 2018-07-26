@@ -45,24 +45,15 @@ server.post("/api/messages", (req, res) => {
         if (context.activity.type === "message") {
             await luis.recognize(context).then(res => {
                 let top = LuisRecognizer.topIntent(res);
-                let data: SpeakerSession[];
-                switch(top) {
-                    case "Speaker":
-                    case "Location":
-                    case "Time":
-                    case "Topic":
-                        data = getData(res.entities);
-                        if(data.length > 1) {
-                            context.sendActivity(createCarousel(data));
-                            break;
-                        }
-                        else if (data.length === 1) {
-                            context.sendActivity({ attachments: [createHeroCard(data[0])] });
-                            break;
-                        }
-                    default:
-                        context.sendActivity(`No way to handle ${top}`);
-                        break;
+                let data: SpeakerSession[] = getData(res.entities);
+                if(top === "Time") {
+                    //Time dialog
+                }
+                else if(data.length > 1) {
+                    context.sendActivity(createCarousel(data, top));
+                }
+                else if (data.length === 1) {
+                    context.sendActivity({ attachments: [createHeroCard(data[0], top)] });
                 }
             });
         }
