@@ -36,7 +36,7 @@ adapter.use(qnaMaker);
 
 const luis = new LuisRecognizer({
     appId: botConfig.LUIS().appId,
-    subscriptionKey: botConfig.decrypt(botConfig.LUIS().subscriptionKey, botConfig.secret),
+    subscriptionKey: botConfig.decrypt(botConfig.LUIS().subscriptionKey),
     serviceEndpoint: botConfig.LUIS().endpointBasePath
 });
 
