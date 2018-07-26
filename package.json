@@ -31,6 +31,7 @@
     "botbuilder": "^4.0.0-preview1.2",
     "botbuilder-ai": "^4.0.0-preview1.2",
     "botbuilder-config": "^0.4.0",
+    "botbuilder-dialogs": "^4.0.0-preview1.2",
     "cheerio": "^1.0.0-rc.2",
     "dotenv": "^6.0.0",
     "restify": "^7.2.1",

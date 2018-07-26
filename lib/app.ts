@@ -1,5 +1,6 @@
 import { BotFrameworkAdapter, MemoryStorage, ConversationState } from "botbuilder";
 import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
+import { DialogSet } from "botbuilder-dialogs";
 import * as restify from "restify";
 import { ConfState, SpeakerSession } from "./types";
 import { BotConfig } from "botbuilder-config";
@@ -40,14 +41,18 @@ const luis = new LuisRecognizer({
     serviceEndpoint: botConfig.LUIS().endpointBasePath
 });
 
+const dialogs = new DialogSet();
+
 server.post("/api/messages", (req, res) => {
     adapter.processActivity(req, res, async (context) => {
+        const state = conversationState.get(context);
+        const dc = dialogs.createContext(context, state);
         if (context.activity.type === "message") {
             await luis.recognize(context).then(res => {
                 let top = LuisRecognizer.topIntent(res);
                 let data: SpeakerSession[] = getData(res.entities);
                 if(top === "Time") {
-                    //Time dialog
+                   dc.begin("time");
                 }
                 else if(data.length > 1) {
                     context.sendActivity(createCarousel(data, top));
@@ -65,3 +70,15 @@ server.post("/api/messages", (req, res) => {
         }
     });
 });
+
+dialogs.add("help", [
+    async (context) => {
+
+    }
+]);
+
+dialogs.add("time", [
+    async (context) => {
+
+    }
+]);
