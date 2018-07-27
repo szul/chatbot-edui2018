@@ -1,12 +1,14 @@
 import { BotFrameworkAdapter, MemoryStorage, ConversationState } from "botbuilder";
 import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
-import { DialogSet } from "botbuilder-dialogs";
+import { DialogSet, FoundChoice } from "botbuilder-dialogs";
 import * as restify from "restify";
 import { ConfState, SpeakerSession } from "./types";
 import { BotConfig } from "botbuilder-config";
 import { config } from "dotenv";
 import { getData } from "./parser";
 import { createCarousel, createHeroCard } from "./cards";
+import { DH_CHECK_P_NOT_PRIME } from "constants";
+import { isContext } from "vm";
 
 config();
 
@@ -63,7 +65,10 @@ server.post("/api/messages", (req, res) => {
             });
         }
         else if (context.activity.type === "message" && !context.responded) {
-            await context.sendActivity("No QnA Maker answers were found.");
+            await dc.continue();
+            if(!context.responded && context.activity.text.toLocaleLowerCase() === "help") {
+                dc.begin("help");
+            }
         }
         else if (context.activity.type !== "message") {
             await context.sendActivity(`[${context.activity.type} event detected]`);
@@ -73,12 +78,27 @@ server.post("/api/messages", (req, res) => {
 
 dialogs.add("help", [
     async (context) => {
-
+        const choices = ["I want to know about a topic"
+            ,"I want to know about a speaker"
+            , "|I want to know about a venue"];
+        await context.prompt("choicePrompt", "What would you like to know?", choices);
+    },
+    async (isContext, choice: FoundChoice) => {
+        switch(choice.index) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
     }
 ]);
 
 dialogs.add("time", [
     async (context) => {
-
+        context.end();
     }
 ]);
