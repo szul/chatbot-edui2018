@@ -7,8 +7,6 @@ import { BotConfig } from "botbuilder-config";
 import { config } from "dotenv";
 import { getData } from "./parser";
 import { createCarousel, createHeroCard } from "./cards";
-import { DH_CHECK_P_NOT_PRIME } from "constants";
-import { isContext } from "vm";
 
 config();
 
@@ -49,7 +47,13 @@ server.post("/api/messages", (req, res) => {
     adapter.processActivity(req, res, async (context) => {
         const state = conversationState.get(context);
         const dc = dialogs.createContext(context, state);
-        if (context.activity.type === "message") {
+        if (context.activity.text != null && context.activity.text === "help") {
+            await dc.continue();
+            if(!context.responded && context.activity.text.toLocaleLowerCase() === "help") {
+                dc.begin("help");
+            }
+        }
+        else if (context.activity.type === "message") {
             await luis.recognize(context).then(res => {
                 let top = LuisRecognizer.topIntent(res);
                 let data: SpeakerSession[] = getData(res.entities);
@@ -64,12 +68,6 @@ server.post("/api/messages", (req, res) => {
                 }
             });
         }
-        else if (context.activity.type === "message" && !context.responded) {
-            await dc.continue();
-            if(!context.responded && context.activity.text.toLocaleLowerCase() === "help") {
-                dc.begin("help");
-            }
-        }
         else if (context.activity.type !== "message") {
             await context.sendActivity(`[${context.activity.type} event detected]`);
         }
@@ -77,15 +75,19 @@ server.post("/api/messages", (req, res) => {
 });
 
 dialogs.add("help", [
-    async (context) => {
+    async (dialogContext) => {
         const choices = ["I want to know about a topic"
             ,"I want to know about a speaker"
             , "|I want to know about a venue"];
-        await context.prompt("choicePrompt", "What would you like to know?", choices);
+        await dialogContext.prompt("choicePrompt", "What would you like to know?", choices);
     },
-    async (isContext, choice: FoundChoice) => {
+    async (dialogContext, choice: FoundChoice) => {
         switch(choice.index) {
             case 0:
+                await dialogContext.context.sendActivity(`You can ask:
+                    * _Who is speaking about bots?_
+                    * _Where is the Bot Framework talk?_
+                    * _What time is the Bot Framework talk?_`);
                 break;
             case 1:
                 break;
@@ -94,11 +96,12 @@ dialogs.add("help", [
             default:
                 break;
         }
+        dialogContext.end();
     }
 ]);
 
 dialogs.add("time", [
-    async (context) => {
-        context.end();
+    async (dialogContext) => {
+        dialogContext.end();
     }
 ]);
