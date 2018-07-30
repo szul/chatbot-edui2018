@@ -49,9 +49,7 @@ server.post("/api/messages", (req, res) => {
         const dc = dialogs.createContext(context, state);
         if (context.activity.text != null && context.activity.text === "help") {
             await dc.continue();
-            if(!context.responded && context.activity.text.toLocaleLowerCase() === "help") {
-                dc.begin("help");
-            }
+            dc.begin("help");
         }
         else if (context.activity.type === "message") {
             await luis.recognize(context).then(res => {
