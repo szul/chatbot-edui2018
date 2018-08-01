@@ -6,6 +6,7 @@ import { ConfState, SpeakerSession } from "./types";
 import { BotConfig } from "botbuilder-config";
 import { config } from "dotenv";
 import { getData } from "./parser";
+import { getTime } from "./dialogs";
 import { createCarousel, createHeroCard } from "./cards";
 
 config();
@@ -56,7 +57,7 @@ server.post("/api/messages", (req, res) => {
                 let top = LuisRecognizer.topIntent(res);
                 let data: SpeakerSession[] = getData(res.entities);
                 if(top === "Time") {
-                   dc.begin("time");
+                   dc.begin("time", data);
                 }
                 else if(data.length > 1) {
                     context.sendActivity(createCarousel(data, top));
@@ -65,9 +66,6 @@ server.post("/api/messages", (req, res) => {
                     context.sendActivity({ attachments: [createHeroCard(data[0], top)] });
                 }
             });
-        }
-        else if (context.activity.type !== "message") {
-            await context.sendActivity(`[${context.activity.type} event detected]`);
         }
     });
 });
@@ -102,14 +100,15 @@ dialogs.add("help", [
             default:
                 break;
         }
-        dialogContext.end();
+        await dialogContext.end();
     }
 ]);
 
 dialogs.add("choicePrompt", new ChoicePrompt());
 
 dialogs.add("time", [
-    async (dialogContext) => {
-        dialogContext.end();
+    async (dialogContext, args: SpeakerSession[]) => {
+        await dialogContext.context.sendActivities(getTime(args));
+        await dialogContext.end();
     }
 ]);
