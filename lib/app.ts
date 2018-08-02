@@ -1,6 +1,7 @@
-import { BotFrameworkAdapter, MemoryStorage, ConversationState } from "botbuilder";
+import { BotFrameworkAdapter, ConversationState, UserState, BotStateSet } from "botbuilder";
 import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
 import { DialogSet, FoundChoice, ChoicePrompt } from "botbuilder-dialogs";
+import { TableStorage } from "botbuilder-azure";
 import * as restify from "restify";
 import { ConfState, SpeakerSession } from "./types";
 import { BotConfig } from "botbuilder-config";
@@ -23,8 +24,15 @@ const adapter = new BotFrameworkAdapter({
     appPassword: process.env.MICROSOFT_APP_PASSWORD 
 });
 
-const conversationState = new ConversationState<ConfState>(new MemoryStorage());
-adapter.use(conversationState);
+const tableStorage = new TableStorage({ 
+    tableName: process.env.TABLENAME
+    , storageAccessKey: process.env.STORAGEKEY
+    , storageAccountOrConnectionString: process.env.STORAGENAME
+});
+const conversationState = new ConversationState<ConfState>(tableStorage);
+const userState = new UserState(tableStorage);
+
+adapter.use(new BotStateSet(conversationState, userState));
 
 const qnaMaker = new QnAMaker({
     knowledgeBaseId: botConfig.QnAMaker().kbId,
