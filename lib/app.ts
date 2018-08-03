@@ -29,7 +29,7 @@ const tableStorage = new TableStorage({
     , storageAccessKey: process.env.STORAGEKEY
     , storageAccountOrConnectionString: process.env.STORAGENAME
 });
-const conversationState = new ConversationState<ConfState>(tableStorage);
+const conversationState = new ConversationState(tableStorage);
 const userState = new UserState(tableStorage);
 
 adapter.use(new BotStateSet(conversationState, userState));
