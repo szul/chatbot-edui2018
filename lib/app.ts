@@ -9,6 +9,7 @@ import { config } from "dotenv";
 import { getData } from "./parser";
 import { getTime } from "./dialogs";
 import { createCarousel, createHeroCard } from "./cards";
+import { Activity } from "botframework-connector/lib/generated/models/mappers";
 
 config();
 
@@ -59,6 +60,9 @@ server.post("/api/messages", (req, res) => {
         await dc.continue();
         if (context.activity.text != null && context.activity.text === "help") {
             await dc.begin("help");
+        }
+        else if(context.activity.type === "message" && context.activity.text === "Save") {
+            let v = context.activity.value;
         }
         else if (context.activity.type === "message") {
             await luis.recognize(context).then(res => {

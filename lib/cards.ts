@@ -1,5 +1,5 @@
 import { SpeakerSession } from "./types";
-import { MessageFactory, Activity, CardFactory, Attachment } from "botbuilder";
+import { MessageFactory, Activity, CardFactory, Attachment, ActionTypes } from "botbuilder";
 
 export function createCarousel(data: SpeakerSession[], topIntent: string): Partial<Activity> {
     var heroCards = [];
@@ -40,7 +40,13 @@ export function createHeroCard(data: SpeakerSession, topIntent: string): Attachm
         CardFactory.images(images),
         CardFactory.actions([
             {
-                type: "openUrl",
+                type: ActionTypes.PostBack,
+                title: "Save",
+                text: "Save",
+                value: data.title
+            },
+            {
+                type: ActionTypes.OpenUrl,
                 title: "Read more...",
                 value: data.link
             }
