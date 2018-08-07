@@ -1,4 +1,4 @@
-import { BotFrameworkAdapter, ConversationState, UserState, BotStateSet } from "botbuilder";
+import { BotFrameworkAdapter, ConversationState, UserState, BotStateSet, TurnContext } from "botbuilder";
 import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
 import { DialogSet, FoundChoice, ChoicePrompt } from "botbuilder-dialogs";
 import { TableStorage } from "botbuilder-azure";
@@ -9,8 +9,7 @@ import { config } from "dotenv";
 import { getData } from "./parser";
 import { getTime } from "./dialogs";
 import { createCarousel, createHeroCard } from "./cards";
-import { Activity } from "botframework-connector/lib/generated/models/mappers";
-
+import { saveRef, subscribe } from "./proactive";
 config();
 
 const botConfig = new BotConfig("./edui2018.bot", process.env.BOT_FILE_SECRET);
@@ -61,23 +60,27 @@ server.post("/api/messages", (req, res) => {
         if (context.activity.text != null && context.activity.text === "help") {
             await dc.begin("help");
         }
-        else if(context.activity.type === "message" && context.activity.text === "Save") {
-            let v = context.activity.value;
-        }
         else if (context.activity.type === "message") {
-            await luis.recognize(context).then(res => {
-                let top = LuisRecognizer.topIntent(res);
-                let data: SpeakerSession[] = getData(res.entities);
-                if(top === "Time") {
-                   dc.begin("time", data);
-                }
-                else if(data.length > 1) {
-                    context.sendActivity(createCarousel(data, top));
-                }
-                else if (data.length === 1) {
-                    context.sendActivity({ attachments: [createHeroCard(data[0], top)] });
-                }
-            });
+            const userId = await saveRef(TurnContext.getConversationReference(context.activity), tableStorage);
+            await subscribe(userId, tableStorage, adapter);
+            if(context.activity.text === "Save") {
+                let v = context.activity.value;
+            }
+            else {
+                await luis.recognize(context).then(res => {
+                    let top = LuisRecognizer.topIntent(res);
+                    let data: SpeakerSession[] = getData(res.entities);
+                    if(top === "Time") {
+                    dc.begin("time", data);
+                    }
+                    else if(data.length > 1) {
+                        context.sendActivity(createCarousel(data, top));
+                    }
+                    else if (data.length === 1) {
+                        context.sendActivity({ attachments: [createHeroCard(data[0], top)] });
+                    }
+                });
+            }
         }
     });
 });
