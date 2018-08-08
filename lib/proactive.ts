@@ -1,6 +1,5 @@
 import { ConversationReference, BotAdapter } from "botbuilder";
 import { TableStorage } from "botbuilder-azure";
-import { AsyncResource } from "async_hooks";
 
 export async function saveRef(ref: Partial<ConversationReference>, tableStorage: TableStorage): Promise<string> {
     const changes = {};
