@@ -42,8 +42,7 @@ export function createHeroCard(data: SpeakerSession, topIntent: string): Attachm
             {
                 type: ActionTypes.PostBack,
                 title: "Save",
-                text: "Save",
-                value: data.title
+                value: `SAVE:${data.title}`
             },
             {
                 type: ActionTypes.OpenUrl,

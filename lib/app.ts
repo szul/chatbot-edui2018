@@ -63,8 +63,8 @@ server.post("/api/messages", (req, res) => {
         else if (context.activity.type === "message") {
             const userId = await saveRef(TurnContext.getConversationReference(context.activity), tableStorage);
             await subscribe(userId, tableStorage, adapter);
-            if(context.activity.text === "Save") {
-                let v = context.activity.value;
+            if(context.activity.text.indexOf("SAVE:") !== -1) {
+                let v = context.activity.text.replace("SAVE:","");
             }
             else {
                 await luis.recognize(context).then(res => {
