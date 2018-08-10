@@ -10,6 +10,8 @@
                 "allowJs": true
             },
     "files": [
+        "./lib/types.ts",
+        "./lib/globals.ts",
         "./lib/proactive.ts",
         "./lib/cards.ts",
         "./lib/dialogs.ts",

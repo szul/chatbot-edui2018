@@ -1,5 +1,6 @@
 import { ConversationReference, BotAdapter } from "botbuilder";
 import { TableStorage } from "botbuilder-azure";
+import { SavedSessions } from "./globals";
 
 export async function saveRef(ref: Partial<ConversationReference>, tableStorage: TableStorage): Promise<string> {
     const changes = {};
@@ -19,7 +20,7 @@ export async function subscribe(userId: string, tableStorage: TableStorage, adap
     });
 }
 
-async function getRef(userId: string, tableStorage: TableStorage): Promise<any> {
+export async function getRef(userId: string, tableStorage: TableStorage): Promise<any> {
     const key = `reference/${userId}`;
     var r = await tableStorage.read([key]);
     return await r[key];

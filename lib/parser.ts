@@ -23,6 +23,11 @@ export function getData(entities: any): SpeakerSession[] {
     return [];
 }
 
+export function getExact(t: string): SpeakerSession {
+    var e = writeEvent(getEventNodes("title", t));
+    return (e.length > 0) ? e[0] : null;
+}
+
 function getSessionBySubject(subject: string): SpeakerSession[] {
     return writeEvent(getEventNodes("keywords", subject).concat(getEventNodes("title", subject)));
 }

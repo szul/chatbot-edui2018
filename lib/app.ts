@@ -6,10 +6,12 @@ import * as restify from "restify";
 import { ConfState, SpeakerSession } from "./types";
 import { BotConfig } from "botbuilder-config";
 import { config } from "dotenv";
-import { getData } from "./parser";
+import { getData, getExact } from "./parser";
 import { getTime } from "./dialogs";
 import { createCarousel, createHeroCard } from "./cards";
-import { saveRef, subscribe } from "./proactive";
+import { saveRef, subscribe, getRef } from "./proactive";
+import { SavedSessions } from "./globals";
+
 config();
 
 const botConfig = new BotConfig("./edui2018.bot", process.env.BOT_FILE_SECRET);
@@ -64,7 +66,14 @@ server.post("/api/messages", (req, res) => {
             const userId = await saveRef(TurnContext.getConversationReference(context.activity), tableStorage);
             await subscribe(userId, tableStorage, adapter);
             if(context.activity.text.indexOf("SAVE:") !== -1) {
-                let v = context.activity.text.replace("SAVE:","");
+                let title = context.activity.text.replace("SAVE:","");
+                SavedSessions.push(title);
+                let ref = await getRef(userId, tableStorage);
+                if(ref["speakersessions"] === undefined) {
+                    ref["speakersessions"] = [];
+                }
+                ref["speakersessions"] = SavedSessions;
+                tableStorage.write(ref);
             }
             else {
                 await luis.recognize(context).then(res => {
