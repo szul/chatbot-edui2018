@@ -1,1 +1,3 @@
-export var SavedSessions: string[] = [];
+export class Globals {
+    public static SavedSessions: string[] = [];
+}

@@ -10,7 +10,7 @@ import { getData, getExact } from "./parser";
 import { getTime } from "./dialogs";
 import { createCarousel, createHeroCard } from "./cards";
 import { saveRef, subscribe, getRef } from "./proactive";
-import { SavedSessions } from "./globals";
+import { Globals } from "./globals";
 
 config();
 
@@ -64,15 +64,15 @@ server.post("/api/messages", (req, res) => {
         }
         else if (context.activity.type === "message") {
             const userId = await saveRef(TurnContext.getConversationReference(context.activity), tableStorage);
-            await subscribe(userId, tableStorage, adapter);
+            subscribe(userId, tableStorage, adapter);
             if(context.activity.text.indexOf("SAVE:") !== -1) {
                 let title = context.activity.text.replace("SAVE:","");
-                SavedSessions.push(title);
+                Globals.SavedSessions.push(title);
                 let ref = await getRef(userId, tableStorage);
                 if(ref["speakersessions"] === undefined) {
                     ref["speakersessions"] = [];
                 }
-                ref["speakersessions"] = SavedSessions;
+                ref["speakersessions"] = Globals.SavedSessions;
                 tableStorage.write(ref);
             }
             else {
