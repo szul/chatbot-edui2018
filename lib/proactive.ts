@@ -8,7 +8,7 @@ import * as moment from "moment";
 export async function saveRef(ref: Partial<ConversationReference>, tableStorage: TableStorage): Promise<string> {
     const changes = {};
     changes[`reference/${ref.activityId}`] = ref;
-    await tableStorage.write(changes);
+    await tableStorage.write(changes).catch(e => console.log(e));
     return ref.activityId;
 }
 
@@ -21,7 +21,7 @@ export function subscribe(userId: string, tableStorage: TableStorage, adapter: B
                     let s: SpeakerSession = getExact(Globals.SavedSessions[i]);
                     let d = moment(`${s.date} ${s.startTime}`);
                     let d15 = d.subtract(15, "minutes")
-                    if(moment(moment.now()).isBetween(d15, d)) {
+                    if(moment(moment.now()).isBetween(d15.toDate(), d.toDate())) {
                         await context.sendActivity(`Reminder: The session ${s.title} from ${s.speakers} is about to start at ${s.startTime} in ${s.location}`);
                         Globals.SavedSessions[i] = undefined;
                     }
@@ -29,11 +29,14 @@ export function subscribe(userId: string, tableStorage: TableStorage, adapter: B
                 Globals.SavedSessions = Globals.SavedSessions.filter(v => v);
             });
         }
-    }, ((60 * 1000) * 5))
+    }, 60000)
 }
 
 export async function getRef(userId: string, tableStorage: TableStorage): Promise<any> {
     const key = `reference/${userId}`;
     var r = await tableStorage.read([key]);
+    if(r[key]["speakersessions"] !== undefined && Globals.SavedSessions.length === 0) {
+        Globals.SavedSessions = r[key]["speakersessions"];
+    }
     return await r[key];
 }

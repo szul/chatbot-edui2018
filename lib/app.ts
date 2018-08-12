@@ -67,13 +67,15 @@ server.post("/api/messages", (req, res) => {
             subscribe(userId, tableStorage, adapter);
             if(context.activity.text.indexOf("SAVE:") !== -1) {
                 let title = context.activity.text.replace("SAVE:","");
-                Globals.SavedSessions.push(title);
+                if(Globals.SavedSessions.indexOf(title) !== -1) {
+                    Globals.SavedSessions.push(title);
+                }
                 let ref = await getRef(userId, tableStorage);
                 if(ref["speakersessions"] === undefined) {
                     ref["speakersessions"] = [];
                 }
                 ref["speakersessions"] = Globals.SavedSessions;
-                tableStorage.write(ref);
+                await saveRef(ref, tableStorage);
             }
             else {
                 await luis.recognize(context).then(res => {
