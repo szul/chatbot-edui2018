@@ -10,11 +10,11 @@ import { getData, getExact } from "./parser";
 import { getTime } from "./dialogs";
 import { createCarousel, createHeroCard } from "./cards";
 import { saveRef, subscribe, getRef } from "./proactive";
-import { Globals } from "./globals";
 
 config();
 
 const botConfig = new BotConfig("./edui2018.bot", process.env.BOT_FILE_SECRET);
+var SavedSessions: string[] = [];
 
 let server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -64,18 +64,19 @@ server.post("/api/messages", (req, res) => {
         }
         else if (context.activity.type === "message") {
             const userId = await saveRef(TurnContext.getConversationReference(context.activity), tableStorage);
-            subscribe(userId, tableStorage, adapter);
+            subscribe(userId, tableStorage, adapter, SavedSessions);
             if(context.activity.text.indexOf("SAVE:") !== -1) {
                 let title = context.activity.text.replace("SAVE:","");
-                if(Globals.SavedSessions.indexOf(title) !== -1) {
-                    Globals.SavedSessions.push(title);
+                if(SavedSessions.indexOf(title) === -1) {
+                    SavedSessions.push(title);
                 }
-                let ref = await getRef(userId, tableStorage);
+                let ref = await getRef(userId, tableStorage, SavedSessions);
                 if(ref["speakersessions"] === undefined) {
                     ref["speakersessions"] = [];
                 }
-                ref["speakersessions"] = Globals.SavedSessions;
+                ref["speakersessions"] = JSON.stringify(SavedSessions);
                 await saveRef(ref, tableStorage);
+                await context.sendActivity(`You've saved "${title}" to your speaker session list.`);
             }
             else {
                 await luis.recognize(context).then(res => {
