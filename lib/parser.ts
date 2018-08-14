@@ -2,7 +2,7 @@ import * as fs from "fs";
 import { load as CheerioLoad } from "cheerio";
 import { SpeakerSession, SpeakerImage } from "./types";
 
-const file: string = fs.readFileSync("./data/edui2017.xml", "utf-8");
+const file: string = fs.readFileSync("./data/edui2018.xml", "utf-8");
 const xml: CheerioStatic = CheerioLoad(file);
 
 export function getData(entities: any): SpeakerSession[] {
