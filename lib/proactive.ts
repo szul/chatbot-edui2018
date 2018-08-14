@@ -7,7 +7,7 @@ import * as moment from "moment";
 export async function saveRef(ref: Partial<ConversationReference>, tableStorage: TableStorage): Promise<string> {
     const changes = {};
     changes[`reference/${ref.activityId}`] = ref;
-    await tableStorage.write(changes).catch(e => console.log(e));
+    await tableStorage.write(changes);
     return await ref.activityId;
 }
 

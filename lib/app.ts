@@ -71,9 +71,6 @@ server.post("/api/messages", (req, res) => {
                     SavedSessions.push(title);
                 }
                 let ref = await getRef(userId, tableStorage, SavedSessions);
-                if(ref["speakersessions"] === undefined) {
-                    ref["speakersessions"] = [];
-                }
                 ref["speakersessions"] = JSON.stringify(SavedSessions);
                 await saveRef(ref, tableStorage);
                 await context.sendActivity(`You've saved "${title}" to your speaker session list.`);
