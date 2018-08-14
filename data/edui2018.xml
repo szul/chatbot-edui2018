@@ -1,1 +1,21 @@
-<conference />
+<conference name="edui2018" start-date="2018-10-08" end-date="2018-10-10">
+    <day date="2018-10-08">
+        <event type="keynote" start-time="9:00 am" end-time="10:00am">
+            <location>Jefferson Theater</location>
+            <speakers>Margot Lee Shetterly and Erin White</speakers>
+            <title>Fireside Chat with Margot Lee Shetterly</title>
+            <description></description>
+            <keywords>keynote</keywords>
+            <link>https://www.eduiconf.org/schedule/fireside-chat-with-margot-lee-shetterly/</link>
+            <photos>
+                <photo type=""></photo>
+            </photos>
+        </event>
+    </day>
+    <day date="2018-10-09">
+
+    </day>
+    <day date="2018-10-10">
+
+    </day>
+</conference>
