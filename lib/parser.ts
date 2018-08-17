@@ -59,6 +59,7 @@ function writeEvent(events: Array<CheerioElement>): SpeakerSession[] {
             , startTime: elem.attr("start-time")
             , endTime: elem.attr("end-time")
             , title: elem.find("title").text()
+            , description: elem.find("description").text()
             , speakers: elem.find("speakers").text()
             , location: elem.find("location").text()
             , keywords: elem.find("keywords").text()

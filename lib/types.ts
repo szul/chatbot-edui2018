@@ -13,6 +13,7 @@ export interface SpeakerSession {
   , startTime: string
   , endTime: string
   , title: string
+  , description: string
   , speakers: string
   , location: string
   , keywords: string

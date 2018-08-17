@@ -1,5 +1,6 @@
 import { SpeakerSession } from "./types";
 import { MessageFactory, Activity, CardFactory, Attachment, ActionTypes } from "botbuilder";
+import { s } from "metronical.proto";
 
 export function createCarousel(data: SpeakerSession[], topIntent: string): Partial<Activity> {
     var heroCards = [];
@@ -18,6 +19,7 @@ export function createHeroCard(data: SpeakerSession, topIntent: string): Attachm
     }
     let title: string;
     let subtitle: string;
+    let text: string = s(data.description).stripHtml().truncateWords(50).toString();
     switch(topIntent) {
         case "Speaker":
             title = data.speakers;
