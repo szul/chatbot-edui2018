@@ -19,7 +19,7 @@ export function createHeroCard(data: SpeakerSession, topIntent: string): Attachm
     }
     let title: string;
     let subtitle: string;
-    let text: string = s(data.description).stripHtml().truncateWords(50).toString();
+    let text: string = s(data.description).stripHtml().truncateWords(30).toString();
     switch(topIntent) {
         case "Speaker":
             title = data.speakers;
@@ -38,7 +38,6 @@ export function createHeroCard(data: SpeakerSession, topIntent: string): Attachm
     }
     return CardFactory.heroCard(
         title,
-        subtitle,
         CardFactory.images(images),
         CardFactory.actions([
             {
@@ -51,6 +50,10 @@ export function createHeroCard(data: SpeakerSession, topIntent: string): Attachm
                 title: "Read more...",
                 value: data.link
             }
-        ])
+        ]),
+        {
+            subtitle: subtitle,
+            text: text
+        }
     );
 }
