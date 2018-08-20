@@ -6,7 +6,7 @@ var request = require('request');
 var rootFolder = path.resolve('.');
 var zipPath = path.resolve(rootFolder, '../edui2018-bot.zip');
 var kuduApi = 'https://edui2018-bot.scm.azurewebsites.net/api/zip/site/wwwroot';
-var userName = '$qnamaker-test-bot';
+var userName = '$edui2018-bot';
 var password = 'pQBlKHstZE4vbCBqkjhAcgv6ZEuAicZ5HMy2MhgPs9js2W1auRkx3HYnkjbG';
 
 function uploadZip(callback) {
