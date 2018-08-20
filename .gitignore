@@ -68,3 +68,6 @@ luis/*.json
 .qnamakerrc
 .luisrc
 dist/
+
+upload.zip
+edui2018-bot.zip

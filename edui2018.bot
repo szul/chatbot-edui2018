@@ -29,6 +29,22 @@
             "authoringKey": "8337c8d993ed84bd80b08e717505f25f8fc437d8533b3b5f20e09b729ce842679ed582f37a37b41d6b5a01a6d966493a",
             "subscriptionKey": "0151c043a20467b3a0871a281d1710e2c06f2204a2cbb0933a38e72382c91f8647c7cce7b1d91807e79cbb2491e6c663",
             "endpointBasePath": "https://eastus.api.cognitive.microsoft.com"
+        },
+        {
+            "type": "abs",
+            "id": "edui2018-bot",
+            "name": "edui2018-bot",
+            "tenantId": "c8fd42e1-59b0-4f6d-a89b-328c9e9e4499",
+            "subscriptionId": "b1731a4a-b452-493f-8ad6-422d6c5ed4ab",
+            "resourceGroup": "EDUI"
+        },
+        {
+            "type": "endpoint",
+            "name": "edui2018-bot (2)",
+            "id": "https://edui2018-bot.azurewebsites.net/api/messages",
+            "appId": "c82a081a-db60-4f3b-bd5a-cf4779d6a321",
+            "appPassword": "4cea408b8a2a90d43bca3d7a2c2c4a009a7db0e269ae295f36adf8744db38cd7",
+            "endpoint": "https://edui2018-bot.azurewebsites.net/api/messages"
         }
     ]
 }
