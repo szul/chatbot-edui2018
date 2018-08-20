@@ -42,7 +42,7 @@
             "type": "endpoint",
             "name": "edui2018-bot (2)",
             "id": "https://edui2018-bot.azurewebsites.net/api/messages",
-            "appId": "c82a081a-db60-4f3b-bd5a-cf4779d6a321",
+            "appId": "9581885c-9561-4da5-b52f-4fb95bbe3e8d",
             "appPassword": "4cea408b8a2a90d43bca3d7a2c2c4a009a7db0e269ae295f36adf8744db38cd7",
             "endpoint": "https://edui2018-bot.azurewebsites.net/api/messages"
         }
