@@ -22,8 +22,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 });
 
 const adapter = new BotFrameworkAdapter({ 
-    appId: process.env.MICROSOFT_APP_ID, 
-    appPassword: process.env.MICROSOFT_APP_PASSWORD 
+    appId: (process.env.ENV == "PROD") ? process.env.MICROSOFT_APP_ID  : ""
+    , appPassword: (process.env.ENV == "PROD") ? process.env.MICROSOFT_APP_PASSWORD : ""
 });
 
 const tableStorage = new TableStorage({ 
