@@ -13,7 +13,7 @@ import { saveRef, subscribe, getRef } from "./proactive";
 
 config();
 
-const botConfig = new BotConfig("./edui2018.bot", process.env.BOT_FILE_SECRET);
+const botConfig = new BotConfig({ botFilePath: "./edui2018.bot", secret: process.env.BOT_FILE_SECRET });
 var SavedSessions: string[] = [];
 
 let server = restify.createServer();

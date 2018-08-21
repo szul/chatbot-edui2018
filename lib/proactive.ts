@@ -12,25 +12,27 @@ export async function saveRef(ref: Partial<ConversationReference>, tableStorage:
 }
 
 export function subscribe(userId: string, tableStorage: TableStorage, adapter: BotAdapter, savedSessions: string[]): void {
-    setInterval(async () => {
-        const ref = await getRef(userId, tableStorage);
-        if(ref) {
-            await adapter.continueConversation(ref, async(context) => {
-                for(let i = 0; i < savedSessions.length; i++) {
-                    if(savedSessions[i] !== undefined) {
-                        let s: SpeakerSession = getExact(savedSessions[i]);
-                        let d = moment(`${s.date} ${s.startTime}`);
-                        let d15 = moment(`${s.date} ${s.startTime}`).subtract(15, "minutes");
-                        if(moment(moment.now()).isBetween(d15.toDate(), d.toDate())) {
-                            await context.sendActivity(`Reminder: The session ${s.title} from ${s.speakers} is about to start at ${s.startTime} in ${s.location}.`);
-                            savedSessions[i] = undefined;
+    if(moment(moment.now()).isBetween(moment("2018-10-06").toDate(), moment("2018-10-12").toDate())) {
+        setInterval(async () => {
+            const ref = await getRef(userId, tableStorage);
+            if(ref) {
+                await adapter.continueConversation(ref, async(context) => {
+                    for(let i = 0; i < savedSessions.length; i++) {
+                        if(savedSessions[i] !== undefined) {
+                            let s: SpeakerSession = getExact(savedSessions[i]);
+                            let d = moment(`${s.date} ${s.startTime}`);
+                            let d15 = moment(`${s.date} ${s.startTime}`).subtract(15, "minutes");
+                            if(moment(moment.now()).isBetween(d15.toDate(), d.toDate())) {
+                                await context.sendActivity(`Reminder: The session ${s.title} from ${s.speakers} is about to start at ${s.startTime} in ${s.location}.`);
+                                savedSessions[i] = undefined;
+                            }
                         }
                     }
-                }
-                savedSessions = savedSessions.filter(v => v);
-            });
-        }
-    }, 60000);
+                    savedSessions = savedSessions.filter(v => v);
+                });
+            }
+        }, 300000);
+    }
 }
 
 export async function getRef(userId: string, tableStorage: TableStorage, savedSessions?: string[]): Promise<any> {
