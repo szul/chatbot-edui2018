@@ -6,7 +6,7 @@ import * as restify from "restify";
 import { ConfState, SpeakerSession } from "./types";
 import { BotConfig } from "botbuilder-config";
 import { config } from "dotenv";
-import { getData, getExact } from "./parser";
+import { getData } from "./parser";
 import { getTime } from "./dialogs";
 import { createCarousel, createHeroCard } from "./cards";
 import { saveRef, subscribe, getRef } from "./proactive";
