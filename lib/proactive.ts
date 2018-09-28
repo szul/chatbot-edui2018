@@ -1,5 +1,5 @@
 import { ConversationReference, BotAdapter } from "botbuilder";
-import { TableStorage } from "botbuilder-azure";
+import { TableStorage } from "botbuilder-azuretablestorage";
 import { SpeakerSession } from "./types";
 import { getExact } from "./parser";
 import * as moment from "moment";

@@ -1,9 +1,9 @@
 import { BotFrameworkAdapter, ConversationState, UserState, BotStateSet, TurnContext } from "botbuilder";
 import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
-import { DialogSet, FoundChoice, ChoicePrompt } from "botbuilder-dialogs";
-import { TableStorage } from "botbuilder-azure";
+import { DialogSet, WaterfallDialog, FoundChoice, ChoicePrompt, WaterfallStepContext, PromptOptions } from "botbuilder-dialogs";
+import { TableStorage } from "botbuilder-azuretablestorage";
 import * as restify from "restify";
-import { ConfState, SpeakerSession } from "./types";
+import { SpeakerSession } from "./types";
 import { BotConfig } from "botbuilder-config";
 import { config } from "dotenv";
 import { getData } from "./parser";
@@ -31,36 +31,31 @@ const tableStorage = new TableStorage({
     , storageAccessKey: process.env.STORAGEKEY
     , storageAccountOrConnectionString: process.env.STORAGENAME
 });
-const conversationState = new ConversationState<ConfState>(tableStorage);
+const conversationState = new ConversationState(tableStorage);
 const userState = new UserState(tableStorage);
-
-adapter.use(new BotStateSet(conversationState, userState));
+//const botStateSet = new BotStateSet(conversationState, userState);
 
 const qnaMaker = new QnAMaker({
     knowledgeBaseId: botConfig.QnAMaker().kbId,
     endpointKey: botConfig.QnAMaker().endpointKey,
     host: botConfig.QnAMaker().hostname
-},
-{
-    answerBeforeNext: true
 });
-adapter.use(qnaMaker);
 
 const luis = new LuisRecognizer({
-    appId: botConfig.LUIS().appId,
-    subscriptionKey: botConfig.decrypt(botConfig.LUIS().subscriptionKey),
-    serviceEndpoint: botConfig.LUIS().endpointBasePath
+    applicationId: botConfig.LUIS().appId,
+    endpointKey: botConfig.decrypt(botConfig.LUIS().subscriptionKey),
+    endpoint: botConfig.LUIS().endpointBasePath
 });
 
-const dialogs = new DialogSet();
+const dialogs = new DialogSet(conversationState.createProperty("dialogState"));
 
 server.post("/api/messages", (req, res) => {
     adapter.processActivity(req, res, async (context) => {
         const state = conversationState.get(context);
-        const dc = dialogs.createContext(context, state);
-        await dc.continue();
+        const dc = await dialogs.createContext(context);
+        await dc.continueDialog();
         if (context.activity.text != null && context.activity.text === "help") {
-            await dc.begin("help");
+            await dc.beginDialog("help");
         }
         else if (context.activity.type === "message") {
             const userId = await saveRef(TurnContext.getConversationReference(context.activity), tableStorage);
@@ -76,47 +71,57 @@ server.post("/api/messages", (req, res) => {
                 await context.sendActivity(`You've saved "${title}" to your speaker session list.`);
             }
             else {
-                await luis.recognize(context).then(res => {
-                    let top = LuisRecognizer.topIntent(res);
-                    let data: SpeakerSession[] = getData(res.entities);
-                    if(top === "Time") {
-                    dc.begin("time", data);
-                    }
-                    else if(data.length > 1) {
-                        context.sendActivity(createCarousel(data, top));
-                    }
-                    else if (data.length === 1) {
-                        context.sendActivity({ attachments: [createHeroCard(data[0], top)] });
-                    }
-                });
+                const qnaResults = await qnaMaker.generateAnswer(context.activity.text);
+                if(qnaResults.length > 0) {
+                    await context.sendActivity(qnaResults[0].answer);
+                }
+                else {
+                    await luis.recognize(context).then(res => {
+                        let top = LuisRecognizer.topIntent(res);
+                        let data: SpeakerSession[] = getData(res.entities);
+                        if(top === "Time") {
+                        dc.beginDialog("time", data);
+                        }
+                        else if(data.length > 1) {
+                            context.sendActivity(createCarousel(data, top));
+                        }
+                        else if (data.length === 1) {
+                            context.sendActivity({ attachments: [createHeroCard(data[0], top)] });
+                        }
+                    });
+                }
             }
         }
     });
 });
 
-dialogs.add("help", [
-    async (dialogContext) => {
+dialogs.add(new WaterfallDialog("help", [
+    async (step: WaterfallStepContext) => {
         const choices = ["I want to know about a topic"
             ,"I want to know about a speaker"
             , "I want to know about a venue"];
-        await dialogContext.prompt("choicePrompt", "What would you like to know?", choices).catch(e => console.log(e));
+        const options: PromptOptions = {
+            prompt: "What would you like to know?"
+            , choices: choices
+        };
+        return await step.prompt("choicePrompt", options);
     },
-    async (dialogContext, choice: FoundChoice) => {
-        switch(choice.index) {
+    async (step: WaterfallStepContext) => {
+        switch(step.result.index) {
             case 0:
-                await dialogContext.context.sendActivity(`You can ask:
+                await step.context.sendActivity(`You can ask:
                     * _Is there a chatbot presentation?_
                     * _What is Michael Szul speaking about?_
                     * _Are there any Xamarin talks?_`);
                 break;
             case 1:
-                await dialogContext.context.sendActivity(`You can ask:
+                await step.context.sendActivity(`You can ask:
                     * _Who is speaking about bots?_
                     * _Where is giving the Bot Framework talk?_
                     * _Who is speaking Rehearsal A?_`);
                 break;
             case 2:
-                await dialogContext.context.sendActivity(`You can ask:
+                await step.context.sendActivity(`You can ask:
                     * _Where is Michael Szul talking?_
                     * _Where is the Bot Framework talk?_
                     * _What time is the Bot Framework talk?_`);
@@ -124,15 +129,15 @@ dialogs.add("help", [
             default:
                 break;
         }
-        await dialogContext.end();
+        return await step.endDialog();
     }
-]);
+]));
 
-dialogs.add("choicePrompt", new ChoicePrompt());
+dialogs.add(new ChoicePrompt("choicePrompt"));
 
-dialogs.add("time", [
-    async (dialogContext, args: SpeakerSession[]) => {
-        await dialogContext.context.sendActivities(getTime(args));
-        await dialogContext.end();
+dialogs.add(new WaterfallDialog("time", [
+    async (step: WaterfallStepContext) => {
+        await step.context.sendActivities(getTime(step.activeDialog.state.options));
+        return await step.endDialog();
     }
-]);
+]));
