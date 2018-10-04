@@ -1,6 +1,6 @@
 import { BotFrameworkAdapter, ConversationState, UserState, BotStateSet, TurnContext } from "botbuilder";
 import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
-import { DialogSet, WaterfallDialog, FoundChoice, ChoicePrompt, WaterfallStepContext, PromptOptions } from "botbuilder-dialogs";
+import { DialogSet, WaterfallDialog, ChoicePrompt, WaterfallStepContext, PromptOptions } from "botbuilder-dialogs";
 import { TableStorage } from "botbuilder-azuretablestorage";
 import * as restify from "restify";
 import { SpeakerSession } from "./types";
