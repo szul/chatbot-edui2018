@@ -1,4 +1,4 @@
-import { BotFrameworkAdapter, ConversationState, UserState, BotStateSet, TurnContext } from "botbuilder";
+import { BotFrameworkAdapter, ConversationState, TurnContext } from "botbuilder";
 import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
 import { DialogSet, WaterfallDialog, ChoicePrompt, WaterfallStepContext, PromptOptions } from "botbuilder-dialogs";
 import { TableStorage } from "botbuilder-azuretablestorage";
@@ -14,9 +14,9 @@ import { saveRef, subscribe, getRef } from "./proactive";
 config();
 
 const botConfig = new BotConfig({ botFilePath: "./edui2018.bot", secret: process.env.BOT_FILE_SECRET });
-var SavedSessions: string[] = [];
+const SavedSessions: string[] = [];
 
-let server = restify.createServer();
+const server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log(`${server.name} listening to ${server.url}`);
 });
@@ -32,8 +32,6 @@ const tableStorage = new TableStorage({
     , storageAccountOrConnectionString: process.env.STORAGENAME
 });
 const conversationState = new ConversationState(tableStorage);
-const userState = new UserState(tableStorage);
-//const botStateSet = new BotStateSet(conversationState, userState);
 
 const qnaMaker = new QnAMaker({
     knowledgeBaseId: botConfig.QnAMaker().kbId,
@@ -51,7 +49,6 @@ const dialogs = new DialogSet(conversationState.createProperty("dialogState"));
 
 server.post("/api/messages", (req, res) => {
     adapter.processActivity(req, res, async (context) => {
-        const state = conversationState.get(context);
         const dc = await dialogs.createContext(context);
         await dc.continueDialog();
         if (context.activity.text != null && context.activity.text === "help") {
@@ -61,11 +58,11 @@ server.post("/api/messages", (req, res) => {
             const userId = await saveRef(TurnContext.getConversationReference(context.activity), tableStorage);
             subscribe(userId, tableStorage, adapter, SavedSessions);
             if(context.activity.text.indexOf("SAVE:") !== -1) {
-                let title = context.activity.text.replace("SAVE:","");
+                const title = context.activity.text.replace("SAVE:","");
                 if(SavedSessions.indexOf(title) === -1) {
                     SavedSessions.push(title);
                 }
-                let ref = await getRef(userId, tableStorage, SavedSessions);
+                const ref = await getRef(userId, tableStorage, SavedSessions);
                 ref["speakersessions"] = JSON.stringify(SavedSessions);
                 await saveRef(ref, tableStorage);
                 await context.sendActivity(`You've saved "${title}" to your speaker session list.`);
@@ -77,8 +74,8 @@ server.post("/api/messages", (req, res) => {
                 }
                 else {
                     await luis.recognize(context).then(res => {
-                        let top = LuisRecognizer.topIntent(res);
-                        let data: SpeakerSession[] = getData(res.entities);
+                        const top = LuisRecognizer.topIntent(res);
+                        const data: SpeakerSession[] = getData(res.entities);
                         if(top === "Time") {
                         dc.beginDialog("time", data);
                         }
@@ -92,6 +89,7 @@ server.post("/api/messages", (req, res) => {
                 }
             }
         }
+        await conversationState.saveChanges(context);
     });
 });
 
