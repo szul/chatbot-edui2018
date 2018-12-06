@@ -5,16 +5,16 @@
     "services": [
         {
             "type": "endpoint",
-            "name": "edui2018",
+            "name": "edui2018-endpoint",
             "id": "http://localhost:3978/api/messages",
             "appId": "",
-            "appPassword": "",
+            "appPassword": "4cea408b8a2a90d43bca3d7a2c2c4a009a7db0e269ae295f36adf8744db38cd7",
             "endpoint": "http://localhost:3978/api/messages"
         },
         {
             "type": "qna",
             "id": "37b238df-84dd-4c79-9b6f-45711f49a0e6",
-            "name": "edUi2018",
+            "name": "edui2018-qna",
             "kbId": "37b238df-84dd-4c79-9b6f-45711f49a0e6",
             "subscriptionKey": "3bf335eac57fc166e0da4ea8021932fa40e4e46fee0fd08919e9ae3358509af7bba561fc3c142de56ce320d1735d2088",
             "endpointKey": "0b4467fd-5095-4918-88ad-4d8e69d2b825",
@@ -23,12 +23,12 @@
         {
             "type": "luis",
             "id": "21024841-0b73-418a-bb8a-1d199fbff7fa",
-            "name": "edui2018 (2)",
+            "name": "edui2018-luis",
             "version": "0.1",
             "appId": "21024841-0b73-418a-bb8a-1d199fbff7fa",
             "authoringKey": "8337c8d993ed84bd80b08e717505f25f8fc437d8533b3b5f20e09b729ce842679ed582f37a37b41d6b5a01a6d966493a",
             "subscriptionKey": "0151c043a20467b3a0871a281d1710e2c06f2204a2cbb0933a38e72382c91f8647c7cce7b1d91807e79cbb2491e6c663",
-            "endpointBasePath": "https://eastus.api.cognitive.microsoft.com"
+            "region": "eastus"
         },
         {
             "type": "abs",

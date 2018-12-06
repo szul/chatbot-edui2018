@@ -4,7 +4,7 @@ import { DialogSet, WaterfallDialog, ChoicePrompt, WaterfallStepContext, PromptO
 import { TableStorage } from "botbuilder-azuretablestorage";
 import * as restify from "restify";
 import { SpeakerSession } from "./types";
-import { BotConfig } from "botbuilder-config";
+import { BotConfiguration, ILuisService, IQnAService } from "botframework-config";
 import { config } from "dotenv";
 import { getData } from "./parser";
 import { getTime } from "./dialogs";
@@ -13,7 +13,7 @@ import { saveRef, subscribe, getRef } from "./proactive";
 
 config();
 
-const botConfig = new BotConfig({ botFilePath: "./edui2018.bot", secret: process.env.BOT_FILE_SECRET });
+const botConfig = BotConfiguration.loadSync("./edui2018.bot", process.env.BOT_FILE_SECRET);
 const SavedSessions: string[] = [];
 
 const server = restify.createServer();
@@ -34,15 +34,15 @@ const tableStorage = new TableStorage({
 const conversationState = new ConversationState(tableStorage);
 
 const qnaMaker = new QnAMaker({
-    knowledgeBaseId: botConfig.QnAMaker().kbId,
-    endpointKey: botConfig.QnAMaker().endpointKey,
-    host: botConfig.QnAMaker().hostname
+    knowledgeBaseId: (<IQnAService>botConfig.findServiceByNameOrId("edui2018-qna")).kbId,
+    endpointKey: (<IQnAService>botConfig.findServiceByNameOrId("edui2018-qna")).endpointKey,
+    host: (<IQnAService>botConfig.findServiceByNameOrId("edui2018-qna")).hostname,
 });
 
 const luis = new LuisRecognizer({
-    applicationId: botConfig.LUIS().appId,
-    endpointKey: botConfig.decrypt(botConfig.LUIS().subscriptionKey),
-    endpoint: botConfig.LUIS().endpointBasePath
+    applicationId: (<ILuisService>botConfig.findServiceByNameOrId("edui2018-luis")).appId,
+    endpointKey: (<ILuisService>botConfig.findServiceByNameOrId("edui2018-luis")).subscriptionKey,
+    endpoint: (<ILuisService>botConfig.findServiceByNameOrId("edui2018-luis")).getEndpoint(),
 });
 
 const dialogs = new DialogSet(conversationState.createProperty("dialogState"));
