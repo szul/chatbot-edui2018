@@ -15,6 +15,7 @@
         "./lib/cards.ts",
         "./lib/dialogs.ts",
         "./lib/parser.ts",
+        "./lib/bot.ts",
         "./lib/app.ts"
     ]
 }
