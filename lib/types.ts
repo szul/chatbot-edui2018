@@ -1,6 +1,3 @@
-export interface ConfState {
-}
-
 export const LINGO: string[] = ["Also", "In addition", "Additionally", "Likewise", "Conjointly"];
 
 export interface SpeakerImage {

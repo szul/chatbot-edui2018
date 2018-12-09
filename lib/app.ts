@@ -1,4 +1,4 @@
-import { BotFrameworkAdapter, ConversationState, TurnContext } from "botbuilder";
+import { BotFrameworkAdapter, ConversationState } from "botbuilder";
 import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
 import { DialogSet } from "botbuilder-dialogs";
 import { TableStorage } from "botbuilder-azuretablestorage";
