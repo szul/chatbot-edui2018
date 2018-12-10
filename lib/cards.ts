@@ -3,7 +3,7 @@ import { MessageFactory, Activity, CardFactory, Attachment, ActionTypes } from "
 import { s } from "metronical.proto";
 
 export function createCarousel(data: SpeakerSession[], topIntent: string): Partial<Activity> {
-    var heroCards = [];
+    const heroCards = [];
     for(let i = 0; i < data.length; i ++) {
         heroCards.push(createHeroCard(data[i], topIntent));
     }
@@ -11,7 +11,7 @@ export function createCarousel(data: SpeakerSession[], topIntent: string): Parti
 }
 
 export function createHeroCard(data: SpeakerSession, topIntent: string): Attachment {
-    let images: string[] = [];
+    const images: string[] = [];
     if(data.images != null && data.images.length > 0) {
         for(let i = 0; i < data.images.length; i++) {
             images.push(data.images[i].link);
@@ -19,7 +19,7 @@ export function createHeroCard(data: SpeakerSession, topIntent: string): Attachm
     }
     let title: string;
     let subtitle: string;
-    let text: string = s(data.description).stripHtml().truncateWords(30).toString();
+    const text: string = s(data.description).stripHtml().truncateWords(30).toString();
     switch(topIntent) {
         case "Speaker":
             title = data.speakers;
