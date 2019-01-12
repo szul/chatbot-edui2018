@@ -1,20 +1,20 @@
 import { ConversationReference, BotAdapter } from "botbuilder";
-import { TableStorage } from "botbuilder-azuretablestorage";
+import { BlobStorage } from "botbuilder-azure";
 import { SpeakerSession } from "./types";
 import { getExact } from "./parser";
 import * as moment from "moment";
 
-export async function saveRef(ref: Partial<ConversationReference>, tableStorage: TableStorage): Promise<string> {
+export async function saveRef(ref: Partial<ConversationReference>, storage: BlobStorage): Promise<string> {
     const changes = {};
     changes[`reference/${ref.activityId}`] = ref;
-    await tableStorage.write(changes);
+    await storage.write(changes);
     return await ref.activityId;
 }
 
-export function subscribe(userId: string, tableStorage: TableStorage, adapter: BotAdapter, savedSessions: string[]): void {
+export function subscribe(userId: string, storage: BlobStorage, adapter: BotAdapter, savedSessions: string[]): void {
     if(moment(moment.now()).isBetween(moment("2018-10-06").toDate(), moment("2018-10-12").toDate())) {
         setInterval(async () => {
-            const ref = await getRef(userId, tableStorage);
+            const ref = await getRef(userId, storage);
             if(ref) {
                 await adapter.continueConversation(ref, async(context) => {
                     for(let i = 0; i < savedSessions.length; i++) {
@@ -35,9 +35,9 @@ export function subscribe(userId: string, tableStorage: TableStorage, adapter: B
     }
 }
 
-export async function getRef(userId: string, tableStorage: TableStorage, savedSessions?: string[]): Promise<any> {
+export async function getRef(userId: string, storage: BlobStorage, savedSessions?: string[]): Promise<any> {
     const key = `reference/${userId}`;
-    var r = await tableStorage.read([key]);
+    var r = await storage.read([key]);
     if(r[key]["speakersessions"] !== undefined && savedSessions != null && savedSessions.length === 0) {
         savedSessions = JSON.parse(r[key]["speakersessions"]);
     }

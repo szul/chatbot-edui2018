@@ -6,7 +6,7 @@ import { getTime } from "./dialogs";
 import { createCarousel, createHeroCard } from "./cards";
 import { saveRef, subscribe, getRef } from "./proactive";
 import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
-import { TableStorage } from "botbuilder-azuretablestorage";
+import { BlobStorage } from "botbuilder-azure";
 
 export class ConfBot {
     private _savedSessions: string[];
@@ -14,15 +14,15 @@ export class ConfBot {
     private _luis: LuisRecognizer;
     private _dialogs: DialogSet;
     private _conversationState: ConversationState;
-    private _tableStorage: TableStorage;
+    private _storage: BlobStorage;
     private _adapter: BotFrameworkAdapter;
-    constructor(SavedSessions: string[], qnaMaker: QnAMaker, luis: LuisRecognizer, dialogs: DialogSet, conversationState: ConversationState, tableStorage: TableStorage, adapter: BotFrameworkAdapter) {
+    constructor(SavedSessions: string[], qnaMaker: QnAMaker, luis: LuisRecognizer, dialogs: DialogSet, conversationState: ConversationState, storage: BlobStorage, adapter: BotFrameworkAdapter) {
         this._savedSessions = SavedSessions;
         this._qnaMaker = qnaMaker;
         this._luis = luis;
         this._dialogs = dialogs;
         this._conversationState = conversationState;
-        this._tableStorage = tableStorage;
+        this._storage = storage;
         this._adapter = adapter
         this.addDialogs();
     }
@@ -33,16 +33,16 @@ export class ConfBot {
             await dc.beginDialog("help");
         }
         else if (context.activity.type === "message") {
-            const userId = await saveRef(TurnContext.getConversationReference(context.activity), this._tableStorage);
-            subscribe(userId, this._tableStorage, this._adapter, this._savedSessions);
+            const userId = await saveRef(TurnContext.getConversationReference(context.activity), this._storage);
+            subscribe(userId, this._storage, this._adapter, this._savedSessions);
             if(context.activity.text.indexOf("SAVE:") !== -1) {
                 const title = context.activity.text.replace("SAVE:","");
                 if(this._savedSessions.indexOf(title) === -1) {
                     this._savedSessions.push(title);
                 }
-                const ref = await getRef(userId, this._tableStorage, this._savedSessions);
+                const ref = await getRef(userId, this._storage, this._savedSessions);
                 ref["speakersessions"] = JSON.stringify(this._savedSessions);
-                await saveRef(ref, this._tableStorage);
+                await saveRef(ref, this._storage);
                 await context.sendActivity(`You've saved "${title}" to your speaker session list.`);
             }
             else {

@@ -1,7 +1,7 @@
 import { BotFrameworkAdapter, ConversationState } from "botbuilder";
 import { QnAMaker, LuisRecognizer } from "botbuilder-ai";
 import { DialogSet } from "botbuilder-dialogs";
-import { TableStorage } from "botbuilder-azuretablestorage";
+import { BlobStorage } from "botbuilder-azure";
 import * as restify from "restify";
 import { BotConfiguration, ILuisService, IQnAService } from "botframework-config";
 import { config } from "dotenv";
@@ -22,12 +22,12 @@ const adapter = new BotFrameworkAdapter({
     , appPassword: (process.env.ENV == "PROD") ? process.env.MICROSOFT_APP_PASSWORD : ""
 });
 
-const tableStorage = new TableStorage({ 
-    tableName: process.env.TABLENAME
+const storage = new BlobStorage({ 
+    containerName: process.env.CONTAINERNAME
     , storageAccessKey: process.env.STORAGEKEY
     , storageAccountOrConnectionString: process.env.STORAGENAME
 });
-const conversationState = new ConversationState(tableStorage);
+const conversationState = new ConversationState(storage);
 
 const qnaMaker = new QnAMaker({
     knowledgeBaseId: (<IQnAService>botConfig.findServiceByNameOrId("edui2018-qna")).kbId,
@@ -49,7 +49,7 @@ const confBot: ConfBot = new ConfBot(
     luis,
     dialogs,
     conversationState,
-    tableStorage,
+    storage,
     adapter
 );
 
