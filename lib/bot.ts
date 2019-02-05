@@ -45,9 +45,9 @@ export class ConfBot {
                 await saveRef(ref, this._storage);
                 await context.sendActivity(`You've saved "${title}" to your speaker session list.`);
             }
-            else {
+            else if(!context.responded) {
                 const qnaResults = await this._qnaMaker.generateAnswer(context.activity.text);
-                if(qnaResults.length > 0) {
+                if(qnaResults.length > 0 && qnaResults[0].score > 0.65) {
                     await context.sendActivity(qnaResults[0].answer);
                 }
                 else {
